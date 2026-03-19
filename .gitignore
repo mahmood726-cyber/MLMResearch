@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Rprofile
+*.Rcheck/
+*.tar.gz
+inst/doc
+.DS_Store

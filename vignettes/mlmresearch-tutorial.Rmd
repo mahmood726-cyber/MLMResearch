@@ -1,0 +1,66 @@
+---
+title: "MLMResearch: Systematic Evaluation of Multilevel Meta-Analysis"
+author: "Mahmood Ahmad"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MLMResearch Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+# library(MLMResearch)
+```
+
+## Introduction
+
+The `MLMResearch` package provides a systematic framework for evaluating multilevel meta-analysis (MLMA) methods across empirical datasets. This vignette demonstrates the core workflow: testing methods, detecting issues, and applying adaptive solutions.
+
+## 1. Using Pre-computed Evaluation Results
+
+While `MLMResearch` can run tests across large cohorts, it also provides pre-computed evaluation results for demonstration and teaching purposes.
+
+```{r}
+# Load pre-computed evaluation results (mimicking output of run_dichotomous_tests)
+data(mlm_eval_results)
+head(mlm_eval_results)
+```
+
+## 2. Automated Issue Detection
+
+The pre-computed results include flags for common methodological issues like variance collapse and convergence failures.
+
+```{r}
+# Summary of common issues detected in the evaluation
+table(mlm_eval_results$variance_collapse)
+table(mlm_eval_results$reml_converged)
+
+# Example: Frequency of Variance Collapse (e.g., tau2 or omega2 = 0)
+collapse_rate <- mean(mlm_eval_results$variance_collapse)
+cat("Variance Collapse Rate: ", collapse_rate * 100, "%\n")
+```
+
+## 3. Applying Adaptive Methods
+
+When standard methods fail (e.g., standard RVE in small samples), `MLMResearch` provides adaptive algorithms that automatically select the most robust estimation strategy based on the data's topology.
+
+```{r, eval=FALSE}
+# Extract a specific, problematic analysis
+df_problem <- coh[coh$analysis_id == "Analysis_005", ]
+
+# Standard RVE might have critically low degrees of freedom here
+# The adaptive_rve function analyzes the cluster count and applies 
+# the appropriate small-sample correction (e.g., CR2 with Satterthwaite df)
+adaptive_result <- adaptive_rve(df_problem)
+
+print(adaptive_result)
+```
+
+## Conclusion
+
+By automating the evaluation of MLMA methods across hundreds of datasets, `MLMResearch` allows methodologists to empirically validate statistical theory and provides applied researchers with adaptive, "fail-safe" functions for complex evidence synthesis.

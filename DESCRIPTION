@@ -1,0 +1,28 @@
+Package: MLMResearch
+Type: Package
+Title: Multilevel Meta-Analysis Method Evaluation and Improvement
+Version: 0.1.0
+Authors@R: person("Mahmood", "Ahmad", email = "mahmood726@gmail.com", role = c("aut","cre"))
+Description: A research companion package to MLM501 that systematically evaluates modern multilevel meta-analysis methods on 501+ Cochrane review datasets. Identifies methodological flaws, tests performance across different outcome types, and develops improved methods for small-sample corrections and robust variance estimation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 4.1)
+Imports:
+    utils,
+    stats,
+    metafor,
+    clubSandwich
+Suggests:
+    testthat (>= 3.0.0),
+    robumeta,
+    dplyr,
+    tibble,
+    ggplot2,
+    knitr,
+    rmarkdown
+URL: https://github.com/mahmood726-cyber/MLMResearch
+BugReports: https://github.com/mahmood726-cyber/MLMResearch/issues
+RoxygenNote: 7.3.3
+VignetteBuilder: knitr
