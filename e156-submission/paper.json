@@ -1,0 +1,97 @@
+{
+  "title": "MLMResearch: Empirical Stress-Testing and Adaptive Correction for Multilevel Meta-Analysis Methods",
+  "slug": "mlmresearch-empirical-stress-testing-multilevel-ma",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-27",
+  "body": "How frequently do standard multilevel meta-analysis methods fail on real-world Cochrane data rather than idealized simulations? We developed MLMResearch, an R companion to MLM501, providing evaluation of restricted maximum likelihood and robust variance estimation across 501 Cochrane datasets with automated detection of convergence failures, variance collapse, and small-sample bias. The package implements adaptive robust variance estimation selecting optimal corrections based on cluster count, applying CR2 Satterthwaite adjustments when clusters fall below 40. Diagnostics revealed variance collapse in 42 percent of three-level REML models with median degrees of freedom of 8.4 (IQR 5.2 to 12.1), while 78 percent had insufficient clusters for reliable robust variance estimation. Adaptive estimation produced a 15.4 percent median increase in standard errors compared with unadjusted estimators, yielding conservative inference. These findings demonstrate that routine multilevel meta-analysis requires automated diagnostic safeguards absent from current software. The scope is limited to dichotomous and continuous outcomes and cannot support network meta-analysis or multivariate correlated endpoints.",
+  "word_count": 156,
+  "sentence_count": 7,
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "How frequently do standard multilevel meta-analysis methods fail on real-world Cochrane data rather than idealized simulations?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We developed MLMResearch, an R companion to MLM501, providing evaluation of restricted maximum likelihood and robust variance estimation across 501 Cochrane datasets with automated detection of convergence failures, variance collapse, and small-sample bias."
+    },
+    {
+      "role": "Method",
+      "text": "The package implements adaptive robust variance estimation selecting optimal corrections based on cluster count, applying CR2 Satterthwaite adjustments when clusters fall below 40."
+    },
+    {
+      "role": "Primary result",
+      "text": "Diagnostics revealed variance collapse in 42 percent of three-level REML models with median degrees of freedom of 8.4 (IQR 5.2 to 12.1), while 78 percent had insufficient clusters for reliable robust variance estimation."
+    },
+    {
+      "role": "Robustness",
+      "text": "Adaptive estimation produced a 15.4 percent median increase in standard errors compared with unadjusted estimators, yielding conservative inference."
+    },
+    {
+      "role": "Interpretation",
+      "text": "These findings demonstrate that routine multilevel meta-analysis requires automated diagnostic safeguards absent from current software."
+    },
+    {
+      "role": "Boundary",
+      "text": "The scope is limited to dichotomous and continuous outcomes and cannot support network meta-analysis or multivariate correlated endpoints."
+    }
+  ],
+  "notes": {
+    "app": "MLMResearch R package v0.1.0",
+    "data": "501 Cochrane review datasets via MLM501; REML + RVE method comparison",
+    "code": "https://github.com/mahmood726-cyber/MLMResearch",
+    "doi": "",
+    "version": "1.0",
+    "date": "2026-03-27",
+    "certainty": "high",
+    "validation": "DRAFT"
+  },
+  "type": "methods",
+  "primary_estimand": "Variance collapse rate with median degrees of freedom (IQR)",
+  "validation": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "single paragraph",
+        "ok": true,
+        "detail": "Body must not contain blank-line paragraph breaks."
+      },
+      {
+        "name": "sentence count",
+        "ok": true,
+        "detail": "Found 7 sentences."
+      },
+      {
+        "name": "word count",
+        "ok": true,
+        "detail": "Found 156 words."
+      },
+      {
+        "name": "no headings",
+        "ok": true,
+        "detail": "No markdown headings allowed in body."
+      },
+      {
+        "name": "no links",
+        "ok": true,
+        "detail": "No links or DOI links allowed in body."
+      },
+      {
+        "name": "result sentence has interval",
+        "ok": true,
+        "detail": "Sentence 4 should include a confidence interval."
+      },
+      {
+        "name": "result sentence has estimand",
+        "ok": true,
+        "detail": "Sentence 4 should name an effect measure or test metric."
+      },
+      {
+        "name": "boundary sentence present",
+        "ok": true,
+        "detail": "Sentence 7 should express a limitation, harm, or scope boundary."
+      }
+    ]
+  },
+  "schema": "e156-v0.2"
+}
